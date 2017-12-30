@@ -37,7 +37,7 @@ function notification({ count = 0, fallback = 0, percent = 0.0 }) {
 
         send({}, (err, res) => console.log(`error: ${err}, response: ${res}`));
     } else {
-        consolel.log(`percent: ${percent} time: ${moment().format()}`);
+        console.log(`percent: ${percent} time: ${moment().format()}`);
     }
 }
 
