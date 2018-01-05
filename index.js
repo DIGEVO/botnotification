@@ -1,6 +1,6 @@
 'use strict';
 
-const moment = require('moment');
+const moment = require('moment-timezone');
 const format = require('string-format');
 require('dotenv').config();
 
@@ -35,9 +35,9 @@ function notification({ count = 0, fallback = 0, percent = 0.0 }) {
             html: mailBody,
         });
 
-        send({}, (err, res) => console.log(`error: ${err}, response: ${res}`));
+        send({}, (err, res) => console.log(`error: ${err}, response: ${res} percent: ${percent} time: ${moment().tz(process.env.TZ).format(process.env.FORMAT)}`));
     } else {
-        console.log(`percent: ${percent} time: ${moment().format()}`);
+        console.log(`percent: ${percent} time: ${moment().tz(process.env.TZ).format(process.env.FORMAT)}`);
     }
 }
 
